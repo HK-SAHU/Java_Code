@@ -1,18 +1,18 @@
 public class nonDecreasingSquares {
     static int[] arrangingSquares(int[] arr) {
         int n = arr.length;
-        int left = 0, j = 0;
+        int left = 0, j = n-1;   //initalizing j form the back side of the array
         int right = n - 1;
         int ans[] = new int[n];
         while (left <= right) {
             if (Math.abs(arr[left]) > Math.abs(arr[right])) {
-                ans[j++] = arr[left] * arr[left];
+                ans[j--] = arr[left] * arr[left];   // filling the array from the back side therefore no need to reverse the array
                 // swap(arr, left, right);
                 left++;
             }
 
             else {
-                ans[j++] = arr[right] * arr[right];
+                ans[j--] = arr[right] * arr[right];
                 // swap(arr, left, right);
                 right--;
             }
@@ -43,7 +43,7 @@ public class nonDecreasingSquares {
     public static void main(String[] args) {
         int[] arr = { -10, -3, -2, 1, 4, 5 };
         int[] ans = arrangingSquares(arr);
-        reverse(ans);
+        // reverse(ans);
         printArray(ans);
     }
 }
