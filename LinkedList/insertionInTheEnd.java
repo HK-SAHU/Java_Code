@@ -5,7 +5,8 @@ public class insertionInTheEnd {
     //Node class representing individual element of the linked list
     class Node{
         int data;  // data of the node 
-        Node next;  //Refrence to the next node
+        Node next;  //address to the next node // can be of Node data type  // mtlb Node class ke andar hum Node ko access kar sakte hai
+        
 
 
         // Constructor to initialize a node with data and next reference
@@ -19,11 +20,11 @@ public class insertionInTheEnd {
     // implementation of insertion of the node at the end
 
     public void insertAtEnd(int newData){
-        Node newNode = new Node(newData);
+        Node newNode = new Node(newData);  //creating a new node and passing the value to that node and the next will be null 
 
         // If the linked list is empty, set the new node as the head
         if(head==null){
-            head= new Node(newData);
+            head= newNode;
             return;
         }
 
@@ -42,9 +43,10 @@ public class insertionInTheEnd {
     public void displayLL(){
         Node current = head;
         while(current!=null){
-            System.out.println(current.data +" ");
+            System.out.print(current.data +"->");
             current= current.next;
         }
+        System.out.print("NULL");
     }
 
     public static void main(String[] args) {
@@ -60,5 +62,6 @@ public class insertionInTheEnd {
         list.insertAtEnd(10);
         list.displayLL();
         System.out.println();
+        
     }
 }
