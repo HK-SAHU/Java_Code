@@ -39,14 +39,19 @@ public class insertAtAnyIndex {
         void insertAtAny(int val, int pos) {
             Node temp = new Node(val);
             Node t = head;
-            if (pos == size()) {
+            if (pos == size()) {    // if the index in which we want to add the node is at the last of the LL or it is equal to size of the LL
                 insertAtEnd(val);
                 return;
             }
-            for (int i = 0; i < pos-1 && t!=null; i++) {
-                t = t.next;
+
+            if(pos==0){      // if the index in which we want to add the the node is at the starting of the LL or Index is 0
+                insertAtBegning(val);
+                return;
             }
-            temp.next = t.next;
+            for (int i = 1; i <= pos-1 && t!=null; i++) {
+                t = t.next;    // iterating the t to the desired place -1
+            }
+            temp.next = t.next;   
             t.next = temp;
         }
 
